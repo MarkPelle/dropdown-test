@@ -1,3 +1,5 @@
+"use client"
+
 import {
 	Navbar as NextUINavbar,
 	NavbarContent,
@@ -28,6 +30,8 @@ import {
 } from "@/components/icons";
 
 import { Logo } from "@/components/icons";
+import {Dropdown, DropdownTrigger, DropdownMenu, DropdownItem} from "@nextui-org/dropdown";
+
 
 export const Navbar = () => {
 	const searchInput = (
@@ -76,6 +80,23 @@ export const Navbar = () => {
 						</NavbarItem>
 					))}
 				</ul>
+				<Dropdown>
+					<DropdownTrigger>
+						<Button
+							variant="bordered"
+						>
+							Open Menu
+						</Button>
+					</DropdownTrigger>
+					<DropdownMenu aria-label="Static Actions">
+						<DropdownItem key="new">New file</DropdownItem>
+						<DropdownItem key="copy">Copy link</DropdownItem>
+						<DropdownItem key="edit">Edit file</DropdownItem>
+						<DropdownItem key="delete" className="text-danger" color="danger">
+							Delete file
+						</DropdownItem>
+					</DropdownMenu>
+				</Dropdown>
 			</NavbarContent>
 
 			<NavbarContent className="flex w-full gap-3 sm:hidden" justify="end">
